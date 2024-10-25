@@ -1,19 +1,40 @@
 {
-  "name": "pandora-server",
-  "version": "1.0.0",
-  "description": "Pandora cloud file sync server.",
-  "main": "dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Zei33/pandora-server.git"
-  },
-  "author": "Matthew Scott",
-  "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/Zei33/pandora-server/issues"
-  },
-  "homepage": "https://github.com/Zei33/pandora-server#readme"
+	"name": "pandora-server",
+	"version": "1.0.0",
+	"description": "Pandora cloud file sync server.",
+	"type": "module",
+	"main": "dist/index.js",
+	"scripts": {
+		"lint": "eslint .",
+		"fix": "eslint --fix",
+		"build": "tsc -p .",
+		"start": "npm run build && node ./dist/index.js",
+		"postinstall": "npm run build"
+	},
+	"imports": {
+		"#classes/*": "./dist/classes/*.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Zei33/pandora-server.git"
+	},
+	"author": "Matthew Scott",
+	"license": "GPL-3.0-or-later",
+	"bugs": {
+		"url": "https://github.com/Zei33/pandora-server/issues"
+	},
+	"homepage": "https://github.com/Zei33/pandora-server#readme",
+	"devDependencies": {
+		"@eslint/js": "^9.13.0",
+		"@types/node": "^22.8.0",
+		"eslint": "^9.13.0",
+		"eslint-config-love": "^89.0.1",
+		"globals": "^15.11.0",
+		"typescript": "^5.6.3",
+		"typescript-eslint": "^8.11.0"
+	},
+	"dependencies": {
+		"chalk": "^5.3.0",
+		"dotenv": "^16.4.5"
+	}
 }
